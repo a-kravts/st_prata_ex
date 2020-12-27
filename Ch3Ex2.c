@@ -1,6 +1,6 @@
 /* ASCII code to character
    filename: Ch3Ex2.c
-   ver 1.0
+   ver 1.1
    Alexandr Kravtsov */
 
 #include <stdio.h>
@@ -11,7 +11,6 @@ int main()
 	int symbol;
 	int correct_enter;
 	int answer_to_repetition_entry;
-	int c;
     
 	do {
 		printf("Please, enter any ASCII code: ");
@@ -28,7 +27,7 @@ int main()
 			printf("Error enter. Exit...\n");
 			return 2;
 		}
-	} while((c = toupper(answer_to_repetition_entry)) == 'Y');
+	} while(toupper(answer_to_repetition_entry) == 'Y');
 
 	return 0;
 }
