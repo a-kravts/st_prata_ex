@@ -9,9 +9,13 @@ int main()
 {
 	char first_name[10];
 	char second_name[10];
-	
+	int correct_enter;
 	printf("Enter your first and second name:\n");
-	scanf("%s %s", first_name, second_name);
+	correct_enter = scanf("%s %s", first_name, second_name);
+	if(correct_enter != 2) {
+		printf("Error enter. Exit...\n");
+		return 1;
+	}
 	printf("%s, %s\n", second_name, first_name);
 
 	return 0;
