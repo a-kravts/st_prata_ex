@@ -10,7 +10,7 @@ int main()
 {
 	int symbol;
 	int correct_enter;
-	int answer_to_repetition_entry;
+	char answer_to_repetition_entry;
     
 	do {
 		printf("Please, enter any ASCII code: ");
@@ -21,8 +21,7 @@ int main()
 		}
 		printf("This code matches to the symbol: %c\n", symbol);
 		printf("Do you want enter another code?(Y/N): ");
-		getchar(); /* CRUTCH!!! */
-		correct_enter = scanf("%lc", &answer_to_repetition_entry);	
+		correct_enter = scanf(" %c", &answer_to_repetition_entry);	
 		if(correct_enter != 1) {
 			printf("Error enter. Exit...\n");
 			return 2;
