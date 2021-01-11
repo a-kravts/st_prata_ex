@@ -1,24 +1,24 @@
 /* input/output letters
    filename: Ch6Ex1.c
-   ver 1.0
+   ver 1.1
    Alexandr Kravtsov */
 
 #include <stdio.h>
 
-#define number_of_letters 26			/* in the English alphabet */
-#define first_letter 'a'
-#define last_letter 'z'
+#define NUMBER_OF_LETTERS 26			/* in the English alphabet */
+#define FIRST_LETTER 'a'
+#define LAST_LETTER 'z'
 
 int main()
 {
-	char letters[number_of_letters];
+	char letters[NUMBER_OF_LETTERS];
 	int i;								/* index for loop */
 	char character;
 	
-	for(i = 0, character = first_letter; character <= last_letter;
+	for(i = 0, character = FIRST_LETTER; character <= LAST_LETTER;
 		i++, character++)
 		letters[i] = character;
-	for(i = 0; i < number_of_letters; i++)
+	for(i = 0; i < NUMBER_OF_LETTERS; i++)
 		printf("%3c", letters[i]);
 	printf("\n");
 	
