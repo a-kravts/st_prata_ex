@@ -5,9 +5,9 @@
 
 #include <stdio.h>
 
-#define start_up_capital 100L			/* in dollars */
-#define simple_percents 0.1							
-#define compound_percents 0.05			
+#define START_UP_CAPITAL 100L			/* in dollars */
+#define SIMPLE_PERCENTS 0.1							
+#define COMPOUND_PERCENTS 0.05			
 
 int main()
 {
@@ -15,12 +15,12 @@ int main()
 	double compound_interest_dep;
 	int number_of_years;
 	
-	simple_interest_dep = start_up_capital;
-	compound_interest_dep = start_up_capital;
+	simple_interest_dep = START_UP_CAPITAL;
+	compound_interest_dep = START_UP_CAPITAL;
 	number_of_years = 0;
 	while(simple_interest_dep >= compound_interest_dep) {
-		simple_interest_dep += start_up_capital * simple_percents;
-		compound_interest_dep += compound_interest_dep * compound_percents;
+		simple_interest_dep += START_UP_CAPITAL * SIMPLE_PERCENTS;
+		compound_interest_dep += compound_interest_dep * COMPOUND_PERCENTS;
 		number_of_years++;
 	}
 	printf("After %d year(s)\n"
