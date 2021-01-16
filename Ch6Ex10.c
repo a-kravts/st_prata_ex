@@ -21,7 +21,7 @@ int main()
 			   "from %d to %d is %d\n", lower_limit*lower_limit,
 										upper_limit*upper_limit,
 										sum);
-		printf("Enter next pair of limits: ");																		
+		printf("Enter next pair of limits: ");
 	}
 	printf("Work completed\n");
 	
