@@ -8,7 +8,7 @@
 
 int main()
 {
-	int ch;									/* for entered characters */
+	char ch;									/* for entered characters */
 	int number_of_replaced_dots = 0;
 	int number_of_replaced_exclamation_marks = 0;
 	
