@@ -2,8 +2,8 @@
 
 int max_int(const int *arr, const int *end)
 {
-	int max = 0;
-	for(; arr < end; arr++)
+	int max = *arr;
+	for(arr++; arr < end; arr++)
 		if(*arr > max)
 			max = *arr;
 	
