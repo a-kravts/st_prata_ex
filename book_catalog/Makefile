@@ -46,4 +46,7 @@ run: book_catalog_prog
 	./book_catalog_prog
 
 clean:
-	rm -f *.o deps.mk book_catalog_prog
+	rm -f *.o deps.mk src_modules.mk book_catalog_prog
+
+src_modules.mk:
+				ls -1 *.c > $@
