@@ -7,6 +7,8 @@
 #include "fwrite_book_t.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
+#define EMPTY_STR '\0'
 
 void add_book(unsigned int *books_ctr_ptr, const char *file_name)
 {
@@ -18,25 +20,33 @@ void add_book(unsigned int *books_ctr_ptr, const char *file_name)
 		book_arr = malloc_for_book_t(number);
 		for(i = 0; i < number; i++) {
 			printf("Book number %u:\n", i + 1);
-			printf("Enter the title of the book:\n");
-			if(!get_str(book_arr[i].title, max_title)) {
-				printf("Error: incorrectly entered title\n");
-				goto quit;
+			printf("Enter the title of the book,\nup to %d characters: ",
+				max_title);
+			while(!get_str(book_arr[i].title, max_title) ||
+				book_arr[i].title[0] == EMPTY_STR)
+			{
+				printf("Error: incorrectly entered title\n"
+					"Please try again: ");
 			}
-			printf("Now enter the author's first and last name:\n");
-			if(!get_str(book_arr[i].author, max_author)) {
-				printf("Error: incorrectly entered first and last name\n");
-				goto quit;
+			printf("Now enter the author's first and last name,\n"
+				"up to %d characters: ", max_author);
+			while(!get_str(book_arr[i].author, max_author) ||
+				book_arr[i].author[0] == EMPTY_STR)
+			{
+				printf("Error: incorrectly entered first and last name\n"
+					"Please try again: ");
 			}
-			printf("Now enter the number of pages in the book:\n");
-			if((book_arr[i].pages = get_uint()) == 0)
-				goto quit;
+			printf("Now enter the number of pages in the book,\n"
+				"up to %d: ", INT_MAX);
+			while(!(book_arr[i].pages = get_uint())) {
+				printf("Error: incorrectly entered number of pages\n"
+					"Please try again: ");
+			}
 			book_arr[i].index = ++current_index;
 			book_arr[i].status = 1;
 		}
 		fwrite_book_t(book_arr, number, file_name, "a");
 		*books_ctr_ptr = current_index;
-	quit:
 		free(book_arr);
 	}
 }

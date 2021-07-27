@@ -10,12 +10,12 @@ unsigned int get_choice_add_book(unsigned int books_ctr)
 
 	if(!limit)
 		return 0;
-	printf("You can add maximum %d book(s)\n"
-		"Enter the number of books to add, or '0' to exit: ", limit);
-	while((choice = get_uint()) < 0 || choice > limit) {
-		printf("Enter the number of books to add(up to %d),\n"
-			"or '0' to exit: ", limit);
+	printf("Enter the number of books to add, or '0' to exit\n"
+		"You can add maximum %d book(s): ", limit);
+	choice = get_uint();
+	while(choice > limit) {
+		printf("Invalid value\nPlease try again: ");
+		choice = get_uint();
 	}
-
 	return choice;
 }

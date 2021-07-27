@@ -7,10 +7,8 @@ unsigned int get_uint()
 	char ch;
 	int number;
 
-	if(scanf("%d", &number) != 1 || number < 0) {
-		printf("Error: incorrectly entered number\n");
+	if(scanf("%d", &number) != 1 || number < 0) 
 		number = 0;
-	}
 	while((ch = getchar()) != '\n') {
 		if(ch == EOF) {
 			printf("\nError: input interrupted\n");
