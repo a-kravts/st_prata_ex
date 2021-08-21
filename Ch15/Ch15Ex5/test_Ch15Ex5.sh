@@ -1,0 +1,17 @@
+#!/bin/sh
+#filename: test_Ch15Ex5.sh
+#author:   Aleksandr Kravtsov
+
+while read src_str shifts res_str ; do
+    res=`./Ch15Ex5 $src_str $shifts`
+    if [ "$res_str" != "$res" ] ; then
+        echo TEST $src_str $shifts FAILED:
+        echo "expected  $res_str,"
+        echo "got       $res"
+    fi
+done << END
+11110000111100001111000011110000 4  00001111000011110000111100001111
+10000000000000000000000000000000 1  00000000000000000000000000000001
+11111111111111110000000000000000 16 00000000000000001111111111111111
+11111111111111111111111111111111 32 11111111111111111111111111111111
+END
