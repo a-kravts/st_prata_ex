@@ -37,8 +37,10 @@ void add_book(unsigned int *books_ctr_ptr, const char *file_name)
 					"Please try again: ");
 			}
 			printf("Now enter the number of pages in the book,\n"
-				"up to %d: ", INT_MAX);
-			while(!(book_arr[i].pages = get_uint())) {
+				"up to %u: ", UINT_MAX);
+			while(!(book_arr[i].pages = get_uint()) ||
+				book_arr[i].pages >= UINT_MAX)
+			{
 				printf("Error: incorrectly entered number of pages\n"
 					"Please try again: ");
 			}

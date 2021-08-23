@@ -1,19 +1,38 @@
 #include "get_uint.h"
+#include "get_str.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+#include <inttypes.h>
+#include <ctype.h>
+
+static int is_digits_str(const char *str_ptr);
 
 unsigned int get_uint()
 {
-	char ch;
-	int number;
+    const int max_length = 11;
+    char str[max_length], *str_end;
+ 
+    while(get_str(str, max_length)) {
+        if(*str == '\0') {
+            printf("Error: empty string\nRepeat input: ");
+            continue;
+        }
+        if(!is_digits_str(str)) {
+            printf("Error: incorrect value\nRepeat input: ");
+            continue;
+        }
+        break;
+    }
+    str_end = strchr(str, '\0');
 
-	if(scanf("%d", &number) != 1 || number < 0) 
-		number = 0;
-	while((ch = getchar()) != '\n') {
-		if(ch == EOF) {
-			printf("\nError: input interrupted\n");
-			exit(EXIT_FAILURE);
-		}
-	}
-	return (unsigned int)number;
+    return strtoumax(str, &str_end, 10);
+}
+static int is_digits_str(const char *str_ptr)
+{
+    while(*str_ptr) {
+        if(!isdigit(*str_ptr))
+            return 0;
+        str_ptr++;
+    }
+    return 1;
 }
