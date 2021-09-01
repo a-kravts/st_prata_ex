@@ -1,0 +1,3 @@
+*.o
+test_sort_array
+print_sorted_int_array
