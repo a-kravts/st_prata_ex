@@ -1,0 +1,3 @@
+*.o
+deps.mk
+book_catalog
