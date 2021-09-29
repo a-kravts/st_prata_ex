@@ -1,4 +1,4 @@
-#include "catalog_exists.h"
+#include "get_catalog_list.h"
 #include "catalog_definitions.h"
 #include "get_directory_stream.h"
 #include <dirent.h>
@@ -7,17 +7,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-int catalog_exists()
+list_t get_catalog_list()
 {
     char *file_suffix;
     struct dirent *entry;
+    list_t list;
     DIR *directory = get_directory_stream();
 
+    initializes_list(&list);
     errno = 0;
     while((entry = readdir(directory))) {
         file_suffix = strchr(entry->d_name, '\0') - strlen(catalog_suffix); 
         if(!strcmp(file_suffix, catalog_suffix)) {
-            return 1;
+           add_item(entry->d_name, &list); 
         }
     }
     if(errno) {
@@ -29,5 +31,5 @@ int catalog_exists()
         exit(EXIT_FAILURE);
     }
 
-    return 0;
+    return list;
 }
