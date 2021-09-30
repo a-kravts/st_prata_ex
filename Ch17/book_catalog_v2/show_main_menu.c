@@ -6,7 +6,7 @@ void show_main_menu()
 {
     printf("Main menu:\n");
     if(catalog_exists())
-        printf("s) Select catalog\n");
-    printf("c) Create catalog\n");
+        printf("s) select catalog\n");
+    printf("c) create catalog\n");
     printf("e) exit\n");
 }

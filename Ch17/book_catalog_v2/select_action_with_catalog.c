@@ -5,14 +5,14 @@
 
 void select_action_with_catalog(const char *name)
 {
-    char ch, *choices = "sde";
+    char ch, *choices = "die";
 
     do {
         show_action_menu();
         ch = get_char_choice(choices);
         switch(ch) {
-//            case 's': show_catalog(name); break;
-//            case 'd': edit_catalog(name); break;
+//            case 'd': display_catalog_contents(name); break;
+//            case 'i': edit_catalog_contents(name);    break;
         }
     } while(ch != EXIT_CHAR);
 }
