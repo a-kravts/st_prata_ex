@@ -11,8 +11,22 @@ SRCMODULES = catalog_exists.c \
              select_action_with_catalog.c \
              select_catalog.c \
              show_action_menu.c \
-             show_main_menu.c
-
+             show_main_menu.c \
+             show_order_menu.c \
+             show_display_menu.c \
+             tree_t.c \
+             display_catalog_contents.c \
+             edit_catalog_contents.c \
+             get_uint.c \
+             get_data_to_add.c \
+             get_data_to_delete.c \
+             add_book.c \
+             delete_book.c \
+             show_edit_menu.c \
+             create_catalog.c \
+             get_catalog_name.c \
+             delete_catalog.c \
+             str_to_lower.c
 OBJMODULES = $(SRCMODULES:.c=.o)
 
 %.o: %.c %.h

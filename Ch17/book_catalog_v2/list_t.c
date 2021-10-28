@@ -53,14 +53,26 @@ void empty_the_list(list_t list)
     free(list);
 }
 /*************************************************************************/
-data_t search_in_list(const data_t target, list_t list)
+list_t *item_search(const data_t target, list_t *list)
 {
-    while(list) {
-        if(!strcmp(target, list->data)) {
-            return list->data;
+    while(*list) {
+        if(!strcmp(target, (*list)->data)) {
+            return list;
         }
-        list = list->next;
+        list = &(*list)->next;
     }
 
     return NULL;
 }
+/*************************************************************************/
+void delete_item(const data_t data, list_t *list)
+{
+    list_t tmp;
+    list_t *target;
+
+    target = item_search(data, list);
+    tmp = *target;
+    *target = (*target)->next;
+    free(tmp);
+}
+/*************************************************************************/

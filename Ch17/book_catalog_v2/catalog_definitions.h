@@ -6,14 +6,12 @@ static const char catalog_suffix[] = ".bc";
 enum {max_catalog_name = 40}; //256
 enum {max_title = 40};
 enum {max_author = 40};
-//enum {max_books = 5};
+enum {max_books = 5};
 
 typedef struct book {
-	unsigned int index;
 	char title[max_title];
 	char author[max_author];
-	unsigned int pages;
-	unsigned int status;
+	unsigned long pages;
 } book_t;
 
 enum {size_book_t = sizeof(book_t)};

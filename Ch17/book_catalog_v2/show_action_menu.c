@@ -1,4 +1,5 @@
 #include "show_action_menu.h"
+#include <stdio.h>
 
 void show_action_menu()
 {

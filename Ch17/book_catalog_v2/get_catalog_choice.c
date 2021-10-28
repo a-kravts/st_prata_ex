@@ -4,25 +4,24 @@
 #include <stdio.h>
 #include <string.h>
 
-char *get_catalog_choice(const list_t list)
+char *get_catalog_choice(list_t *list)
 {
-    char name[max_catalog_name];
-    data_t catalog;
+    char catalog[max_catalog_name];
+    list_t *choice;
 
-    printf("Enter the name of the desired catalog or\n"
-           "'e' to exit: ");
     do {
-        get_str(name, max_catalog_name);
-        if(!strcmp(name, "e")) {
+        printf("Enter the name of the desired catalog or\n"
+               "'e' to exit: ");
+        get_str(catalog, max_catalog_name);
+        if(*catalog == 'e') {
             return NULL;
         }
-        catalog = search_in_list(name, list);
-        if(!catalog) {
+        choice = item_search(catalog, list);
+        if(!choice) {
             printf("Error: no match found\nAvailable catalogs:\n");
-            print_list_data(list);
-            printf("Your choice: ");
+            print_list_data(*list);
         }
-    } while(!catalog);
+    } while(!choice);
 
-    return catalog;
+    return (*choice)->data;
 }

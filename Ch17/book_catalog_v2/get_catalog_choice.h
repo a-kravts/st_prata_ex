@@ -3,6 +3,6 @@
 #define GET_CATALOG_CHOICE_H_SENTRY
 
 #include "list_t.h"
-extern char *get_catalog_choice(const list_t list);
+extern char *get_catalog_choice(list_t *list);
 
 #endif

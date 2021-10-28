@@ -1,11 +1,10 @@
-#include "select_catalog.h"
-#include "select_action_with_catalog.h"
+#include "delete_catalog.h"
 #include "get_catalog_list.h"
 #include "get_catalog_choice.h"
 #include "list_t.h"
 #include <stdio.h>
 
-void select_catalog()
+void delete_catalog()
 {
     data_t catalog;
     list_t list;
@@ -15,8 +14,13 @@ void select_catalog()
         printf("Available catalogs:\n");
         print_list_data(list);
         catalog = get_catalog_choice(&list);
-        if(catalog)
-            select_action_with_catalog(catalog);
+        if(catalog) {
+            if(remove(catalog)) {
+                perror("remove");
+            } else {
+                delete_item(catalog, &list);
+            }
+        }
     } while(catalog);
 
     empty_the_list(list);
