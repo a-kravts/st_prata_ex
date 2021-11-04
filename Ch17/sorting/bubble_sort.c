@@ -3,16 +3,17 @@
 void bubble_sort(int *array, int size)
 {
     enum state {false, true} swap;
-    int tmp, i, limit;
+    int tmp, *current, *next, *limit;
+    limit = array + size - 1;
 
-    while(size > 1) {
+    for(; limit > array; limit--) {
         swap = false;
-        limit = size - 1;
-        for(i = 0; i < limit; i++) {
-            if(array[i] > array[i + 1]) {
-                tmp = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = tmp;
+        for(current = array; current < limit; current++) {
+            next = current + 1;
+            if(*current > *next) {
+                tmp = *current;
+                *current = *next;
+                *next = tmp;
                 if(!swap) {
                     swap = true;
                 }
@@ -21,6 +22,5 @@ void bubble_sort(int *array, int size)
         if(!swap) {
             break;
         }
-        size--;
     }
 }
