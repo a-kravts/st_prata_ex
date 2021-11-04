@@ -1,11 +1,10 @@
-#include "get_function_running_time.h"
+#include "get_running_time.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <time.h>
 
-double
-get_function_running_time(void function(int *array), int *array, int size)
+double get_running_time(fp_t function, const int *array, int size)
 {
     clock_t start, finish;
 
@@ -14,7 +13,7 @@ get_function_running_time(void function(int *array), int *array, int size)
         perror("clock");
         exit(EXIT_FAILURE);
     }
-    function(array);
+    function(array, size);
     finish = clock();
     if(finish == -1) {
         perror("clock");
