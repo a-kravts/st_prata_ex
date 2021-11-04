@@ -1,1 +1,3 @@
 *.o
+deps.mk
+comparison_of_sorts
