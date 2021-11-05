@@ -2,6 +2,7 @@ CC = gcc
 CFLAGS = -Wall -g
 
 SRCMODULES = bubble_sort.c \
+             selection_sort.c \
              get_running_time.c
 
 OBJMODULES = $(SRCMODULES:.c=.o)
