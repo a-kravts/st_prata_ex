@@ -4,6 +4,7 @@ CFLAGS = -Wall -g
 SRCMODULES = bubble_sort.c \
              insertion_sort.c \
              selection_sort.c \
+             quick_sort.c \
              get_running_time.c
 
 OBJMODULES = $(SRCMODULES:.c=.o)
